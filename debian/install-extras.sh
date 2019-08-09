@@ -28,7 +28,7 @@ fi
 if [ $RELEASE != 'stretch' ] && [ $RELEASE != 'buster' ] ; then
   PACKAGES+=' python-software-properties'
 fi
-utils.lxc.attach apt-get update
+utils.lxc.attach apt-get update --allow-releaseinfo-change
 utils.lxc.attach apt-get install ${PACKAGES[*]} -y --force-yes
 utils.lxc.attach apt-get upgrade -y --force-yes
 
